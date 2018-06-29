@@ -5,7 +5,9 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -29,194 +31,196 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="674dp"
+            android:orientation="vertical"
             android:paddingTop="70dp">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Activity:"
-                android:id="@+id/textLabelActivity" />
+                android:orientation="horizontal">
 
-            <Space
-                android:layout_width="20px"
-                android:layout_height="20px" />
+                <TextView
+                    android:id="@+id/textLabelActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activity:"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
+                <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarCommandActivity"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px" />
+
+                <TextView
+                    android:id="@+id/textViewActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connecting to Service"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarSpinny"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:indeterminateBehavior="cycle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/progressBarCommandActivity" />
+                android:orientation="horizontal">
 
-            <Space
-                android:layout_width="20px"
-                android:layout_height="20px" />
+                <TextView
+                    android:id="@+id/textViewLabelRileyLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="RileyLink: "
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TextView
-                android:layout_width="wrap_content"
+                <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px" />
+
+                <TextView
+                    android:id="@+id/textViewFieldRileyLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(not found)"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Connecting to Service"
-                android:id="@+id/textViewActivity" />
+                android:orientation="horizontal">
 
-            <Space
-                android:layout_width="20px"
-                android:layout_height="20px" />
+                <TextView
+                    android:id="@+id/textViewLabelPump"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pump: "
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleSmall"
-                android:layout_width="wrap_content"
+                <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px" />
+
+                <TextView
+                    android:id="@+id/textViewFieldPump"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(not found)"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:indeterminateBehavior="cycle"
-                android:id="@+id/progressBarSpinny" />
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/buttonReadPumpClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onReadPumpClockButtonClicked"
+                    android:text="Read Pump Clock" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <Space
+                    android:layout_width="20px"
+                    android:layout_height="20px" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="RileyLink: "
-                android:id="@+id/textViewLabelRileyLink"
-                android:layout_alignParentStart="true" />
-
-            <Space
-                android:layout_width="20px"
-                android:layout_height="20px" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="(not found)"
-                android:id="@+id/textViewFieldRileyLink" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Pump: "
-                android:id="@+id/textViewLabelPump" />
-
-            <Space
-                android:layout_width="20px"
-                android:layout_height="20px" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="(not found)"
-                android:id="@+id/textViewFieldPump" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textViewPumpClockTime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
 
             <Button
+                android:id="@+id/buttonTunePump"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Read Pump Clock"
-                android:id="@+id/buttonReadPumpClock"
-                android:onClick="onReadPumpClockButtonClicked"/>
-
-            <Space
-                android:layout_width="20px"
-                android:layout_height="20px" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text=""
-                android:id="@+id/textViewPumpClockTime" />
-        </LinearLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wake and Tune"
-            android:id="@+id/buttonTunePump"
-            android:onClick="onTunePumpButtonClicked" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fetch History and Save"
-            android:id="@+id/buttonFetchHistory"
-            android:onClick="onFetchHistoryButtonClicked" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fetch Saved History"
-            android:id="@+id/buttonFetchSavedHistory"
-            android:onClick="onFetchSavedHistoryButtonClicked"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Get ISF Profile"
-            android:id="@+id/buttonGetISFProfile"
-            android:onClick="onGetISFProfileButtonClicked"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Get Carb Profile"
-            android:id="@+id/buttonGetCarbProfile"
-            android:onClick="onGetCarbProfileButtonClicked"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="View Event Log"
-            android:id="@+id/buttonViewEventLog"
-            android:onClick="onViewEventLogButtonClicked"/>
+                android:onClick="onTunePumpButtonClicked"
+                android:text="Wake and Tune" />
 
             <Button
+                android:id="@+id/buttonFetchHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Update All Status"
+                android:onClick="onFetchHistoryButtonClicked"
+                android:text="Fetch History and Save" />
+
+            <Button
+                android:id="@+id/buttonFetchSavedHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onFetchSavedHistoryButtonClicked"
+                android:text="Fetch Saved History" />
+
+            <Button
+                android:id="@+id/buttonGetISFProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onGetISFProfileButtonClicked"
+                android:text="Get ISF Profile" />
+
+            <Button
+                android:id="@+id/buttonGetCarbProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onGetCarbProfileButtonClicked"
+                android:text="Get Carb Profile" />
+
+            <Button
+                android:id="@+id/buttonViewEventLog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onViewEventLogButtonClicked"
+                android:text="View Event Log" />
+
+            <Button
                 android:id="@+id/buttonUpdateAllStatus"
-                android:onClick="onUpdateAllStatusButtonClicked"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onUpdateAllStatusButtonClicked"
+                android:text="Update All Status" />
 
             <Button
+                android:id="@+id/buttonShowAAPS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/aaps_icon"
+                android:onClick="onShowAAPSButtonClicked"
                 android:text="@string/cmd_aaps_show_apps_cmd"
-                android:textAllCaps="false"
-                android:id="@+id/buttonShowAAPS"
-                android:onClick="onShowAAPSButtonClicked"/>
+                android:textAllCaps="false" />
 
 
         </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>
+            </ScrollView>
 
 
     <!-- Side navigation drawer UI -->
@@ -269,5 +273,4 @@
             android:layout_height="match_parent"
             />
     </LinearLayout>
-
 </android.support.v4.widget.DrawerLayout>
