@@ -369,8 +369,10 @@ public class RileyLinkScan extends AppCompatActivity {
             String deviceName = device.getName();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             if (SP.getString(RileyLinkConst.Prefs.RileyLinkAddress, "").compareTo(device.getAddress()) == 0) {
-                viewHolder.deviceName.setTextColor(getColor(R.color.secondary_text_light));
-                viewHolder.deviceAddress.setTextColor(getColor(R.color.secondary_text_light));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    viewHolder.deviceName.setTextColor(getColor(R.color.secondary_text_light));
+                    viewHolder.deviceAddress.setTextColor(getColor(R.color.secondary_text_light));
+                }
                 deviceName += " (" + getResources().getString(R.string.selected_device) + ")";
             }
             viewHolder.deviceName.setText(deviceName);
